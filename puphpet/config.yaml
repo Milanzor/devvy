@@ -196,6 +196,7 @@ php:
             - intl
             - cgi
             - curl
+            - zip
         pear: {  }
         pecl: {  }
     ini:
