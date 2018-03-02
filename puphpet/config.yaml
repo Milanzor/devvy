@@ -133,40 +133,6 @@ letsencrypt:
         email: ''
         webserver_service: ''
     domains: {  }
-php:
-    install: '1'
-    settings:
-        version: '5.6'
-    modules:
-        php:
-            - cli
-            - intl
-            - xml
-            - mbstring
-            - mcrypt
-            - intl
-            - cgi
-            - curl
-            - zip
-        pear: {  }
-        pecl: {  }
-    ini:
-        display_errors: 'On'
-        error_reporting: '-1'
-        session.save_path: /var/lib/php/session
-        date.timezone: UTC
-    fpm_ini:
-        error_log: /var/log/php-fpm.log
-    fpm_pools:
-        phpfp_xsyu9a275g14:
-            ini:
-                prefix: www
-                listen: '127.0.0.1:9000'
-                security.limit_extensions: .php
-                user: www-user
-                group: www-data
-    composer: '1'
-    composer_home: ''
 xdebug:
     install: '1'
     settings:
@@ -203,3 +169,50 @@ mysql:
         version: '5.7'
         root_password: '123'
         override_options: {  }
+apache:
+    install: '1'
+    settings:
+        version: 2.4
+        user: www-data
+        group: www-data
+        default_vhost: true
+        manage_user: false
+        manage_group: false
+        sendfile: 0
+    modules:
+        - proxy_fcgi
+        - rewrite
+php:
+    install: '1'
+    settings:
+        version: '7.1'
+    modules:
+        php:
+            - cli
+            - intl
+            - xml
+            - mbstring
+            - mcrypt
+            - intl
+            - cgi
+            - curl
+            - zip
+        pear: {  }
+        pecl: {  }
+    ini:
+        display_errors: 'On'
+        error_reporting: '-1'
+        session.save_path: /var/lib/php/session
+        date.timezone: UTC
+    fpm_ini:
+        error_log: /var/log/php-fpm.log
+    fpm_pools:
+        pool1:
+            ini:
+                prefix: www
+                listen: '127.0.0.1:9000'
+                security.limit_extensions: .php
+                user: www-user
+                group: www-data
+    composer: '1'
+    composer_home: ''
