@@ -127,55 +127,6 @@ apache:
     modules:
         - proxy_fcgi
         - rewrite
-    vhosts:
-        av_pwkmkdte34bp:
-            servername: devvy.local
-            docroot: /var/www/devvy.local/private_html
-            port: '80'
-            setenvif:
-                - 'Authorization "(.*)" HTTP_AUTHORIZATION=$1'
-            custom_fragment: ''
-            ssl: '0'
-            ssl_cert: LETSENCRYPT
-            ssl_key: LETSENCRYPT
-            ssl_chain: LETSENCRYPT
-            ssl_certs_dir: LETSENCRYPT
-            ssl_protocol: ''
-            ssl_cipher: ''
-            directories:
-                avd_8vnid65wvv80:
-                    path: /var/www/devvy.local/private_html
-                    directoryindex: index.php
-                    options:
-                        - Indexes
-                        - FollowSymlinks
-                        - MultiViews
-                    allow_override:
-                        - All
-                    require:
-                        - 'all granted'
-                    custom_fragment: ''
-                    provider: directory
-            files_match:
-                avfm_7mwhiwzg2zec:
-                    path: (app_dev|config)\.php$
-                    sethandler: 'proxy:fcgi://127.0.0.1:9000'
-                    setenv:
-                        - 'APP_ENV dev'
-                    custom_fragment: ''
-                    provider: filesmatch
-                avfm_ysxyoghtc8k1:
-                    path: app\.php$
-                    sethandler: 'proxy:fcgi://127.0.0.1:9000'
-                    setenv:
-                        - 'APP_ENV prod'
-                    custom_fragment: ''
-                    provider: filesmatch
-                avfm_cg4b1oidcman:
-                    path: \.php$
-                    sethandler: 'proxy:fcgi://127.0.0.1:9000'
-                    custom_fragment: ''
-                    provider: filesmatch
 letsencrypt:
     install: '1'
     settings:
@@ -252,17 +203,3 @@ mysql:
         version: '5.7'
         root_password: '123'
         override_options: {  }
-    users:
-        mysqlnu_4bi0yyqeov2v:
-            name: devvy_user
-            password: '(v]}Xj<R2nGerdQ9'
-    databases:
-        mysqlnd_in4l4m678s1o:
-            name: devvy_db
-            sql: ''
-    grants:
-        mysqlng_uw8px2qzqf65:
-            user: devvy_user
-            table: devvy_db.*
-            privileges:
-                - ALL
