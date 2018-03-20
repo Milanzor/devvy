@@ -38,7 +38,7 @@ vagrantfile:
                     - puphpet/puppet/manifests
                 options:
                     - '--verbose'
-                    - '--hiera_config /vagrant/puphpet/puppet/hiera.yaml'
+                    - '--hiera_config /opt/puphpet/puppet/hiera.yaml'
         synced_folder:
             vflsf_ewzypj2hbyn9:
                 owner: www-data
@@ -115,25 +115,13 @@ resolv:
 cron:
     install: '1'
     jobs: {  }
-apache:
-    install: '1'
-    settings:
-        version: 2.4
-        user: www-data
-        group: www-data
-        default_vhost: true
-        manage_user: false
-        manage_group: false
-        sendfile: 0
-    modules:
-        - proxy_fcgi
-        - rewrite
 letsencrypt:
     install: '1'
     settings:
         email: ''
         webserver_service: ''
     domains: {  }
+
 xdebug:
     install: '1'
     settings:
@@ -142,7 +130,7 @@ xdebug:
         xdebug.remote_connect_back: '1'
         xdebug.remote_enable: '1'
         xdebug.remote_handler: dbgp
-        xdebug.remote_host: '192.168.56.101'
+        xdebug.remote_host: 192.168.56.101
         xdebug.remote_port: '9000'
 ruby:
     install: '1'
@@ -150,7 +138,7 @@ ruby:
         rv_omz0lnqb3496:
             default: '1'
             bundler: '1'
-            version: 2.3.1
+            version: '2.3'
             gems:
                 - deep_merge@1.0.1
                 - activesupport@4.2.6
@@ -183,6 +171,7 @@ apache:
     modules:
         - proxy_fcgi
         - rewrite
+    vhosts: {  }
 php:
     install: '1'
     settings:
@@ -190,7 +179,6 @@ php:
     modules:
         php:
             - cli
-            - intl
             - xml
             - mbstring
             - mcrypt
