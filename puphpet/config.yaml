@@ -90,6 +90,12 @@ server:
         - bash-completion
         - vim
         - htop
+        - libfontconfig1
+        - libxrender1
+        - libxext6
+        - zlib1g-dev
+        - libpng-dev
+        - libfreetype6
 users_groups:
     install: '1'
     groups: {  }
@@ -138,11 +144,11 @@ ruby:
         rv_omz0lnqb3496:
             default: '1'
             bundler: '1'
-            version: '2.3'
+            version: '2.4'
             gems:
-                - deep_merge@1.0.1
-                - activesupport@4.2.6
-                - vine@0.2
+                - deep_merge@1.2.1
+                - activesupport@5.1.4
+                - vine@0.4
 python:
     install: '1'
     packages: {  }
