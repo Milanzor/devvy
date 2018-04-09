@@ -28,8 +28,8 @@ vagrantfile:
                                 vflmnfp_31hfwf3lpizp:
                                     host: '5012'
                                     guest: '22'
-                        memory: '1024'
-                        cpus: '2'
+                        memory: '2048'
+                        cpus: '4'
         provision:
             puppet:
                 manifests_path: puphpet/puppet/manifests
@@ -110,7 +110,14 @@ locale:
         timezone: Europe/Amsterdam
 firewall:
     install: '1'
-    rules: {  }
+    rules:
+        rule_qez:
+            port:
+                - '1337'
+                - '1338'
+            priority: '100'
+            proto: tcp
+            action: accept
 resolv:
     install: '1'
     nameservers:
