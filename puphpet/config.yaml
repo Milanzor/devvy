@@ -188,7 +188,7 @@ apache:
 php:
     install: '1'
     settings:
-        version: '7.1'
+        version: '7.2'
     modules:
         php:
             - cli
