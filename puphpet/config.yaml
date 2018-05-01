@@ -282,15 +282,6 @@ nodejs:
         version: '8'
     npm_packages:
         - yarn
-mysql:
-    install: '1'
-    settings:
-        version: '5.7'
-        root_password: '123'
-        override_options: {  }
-    users: {  }
-    databases: {  }
-    grants: {  }
 mariadb:
     install: '0'
     settings:
@@ -312,6 +303,15 @@ mariadb:
             table: '*.*'
             privileges:
                 - ALL
+mysql:
+    install: '1'
+    settings:
+        version: '5.7'
+        root_password: '123'
+        override_options: {  }
+    users: {  }
+    databases: {  }
+    grants: {  }
 postgresql:
     install: '0'
     settings:
